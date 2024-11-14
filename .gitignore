@@ -1,0 +1,71 @@
+# --- General ---
+.idea/
+*.iml
+*.log
+*.bak
+*.tmp
+*.swp
+*.DS_Store
+Thumbs.db
+.env
+node_modules/
+
+# --- Java / Spring Boot ---
+target/
+*.class
+*.war
+*.jar
+*.ear
+*.log
+!src/main/resources/**/application.properties
+!src/main/resources/**/application.yml
+*.pid
+hs_err_pid*
+*.hprof
+.mvn/
+**/db.mv.db
+**/db.trace.db
+
+# Specific logs
+logs/
+*.log
+
+# Spring Boot configuration
+**/application-*.properties
+**/application-*.yml
+
+# Maven and Gradle specific
+*.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+build/
+*.gradle
+.gradle/
+build/
+
+# --- Angular ---
+/dist/
+/out-tsc/
+.vscode/
+/coverage/
+.angular/
+/.angular-cache/
+**/*.js
+**/*.js.map
+**/*.ts.map
+
+# Temporary files
+tmp/
+*.bak
+*.tmp
+
+# IDE-specific
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store

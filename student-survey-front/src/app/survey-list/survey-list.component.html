@@ -1,0 +1,182 @@
+<div class="survey-list-container">
+  <h2>All Surveys</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Street Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Date of Survey</th>
+        <th>Liked Features</th>
+        <th>Interest Source</th>
+        <th>Recommendation</th>
+        <th>Additional Comments</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let survey of surveys">
+        <td>{{ survey.id }}</td>
+        <td>{{ survey.firstName }}</td>
+        <td>{{ survey.lastName }}</td>
+        <td>{{ survey.streetAddress }}</td>
+        <td>{{ survey.city }}</td>
+        <td>{{ survey.state }}</td>
+        <td>{{ survey.zip }}</td>
+        <td>{{ survey.phoneNumber }}</td>
+        <td>{{ survey.email }}</td>
+        <td>{{ survey.dateOfSurvey }}</td>
+        <td>{{ survey.likedFeatures?.join(', ') }}</td>
+        <td>{{ survey.interestSource }}</td>
+        <td>{{ survey.recommendationLikelihood }}</td>
+        <td>{{ survey.additionalComments }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="onEdit(survey.id!)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="onDelete(survey.id!)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Edit Form -->
+  <div *ngIf="selectedSurvey" class="edit-form">
+    <h3>Edit Survey</h3>
+    <form (ngSubmit)="onSaveEdit()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          id="firstName"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.firstName"
+          name="firstName"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          id="lastName"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.lastName"
+          name="lastName"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="streetAddress">Street Address</label>
+        <input
+          id="streetAddress"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.streetAddress"
+          name="streetAddress"
+        />
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input
+          id="city"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.city"
+          name="city"
+        />
+      </div>
+      <div class="form-group">
+        <label for="state">State</label>
+        <input
+          id="state"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.state"
+          name="state"
+        />
+      </div>
+      <div class="form-group">
+        <label for="zip">Zip</label>
+        <input
+          id="zip"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.zip"
+          name="zip"
+        />
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input
+          id="phoneNumber"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.phoneNumber"
+          name="phoneNumber"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.email"
+          name="email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dateOfSurvey">Date of Survey</label>
+        <input
+          id="dateOfSurvey"
+          type="date"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.dateOfSurvey"
+          name="dateOfSurvey"
+        />
+      </div>
+      <div class="form-group">
+        <label for="likedFeatures">Liked Features</label>
+        <input
+          id="likedFeatures"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.likedFeatures"
+          name="likedFeatures"
+        />
+      </div>
+      <div class="form-group">
+        <label for="interestSource">Interest Source</label>
+        <input
+          id="interestSource"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.interestSource"
+          name="interestSource"
+        />
+      </div>
+      <div class="form-group">
+        <label for="recommendationLikelihood">Recommendation Likelihood</label>
+        <select
+          id="recommendationLikelihood"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.recommendationLikelihood"
+          name="recommendationLikelihood"
+        >
+          <option value="Very Likely">Very Likely</option>
+          <option value="Likely">Likely</option>
+          <option value="Unlikely">Unlikely</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="additionalComments">Additional Comments</label>
+        <textarea
+          id="additionalComments"
+          class="form-control"
+          [(ngModel)]="selectedSurvey.additionalComments"
+          name="additionalComments"
+        ></textarea>
+      </div>
+      <div class="form-buttons">
+        <button class="btn btn-success" type="submit">Save</button>
+        <button class="btn btn-secondary" type="button" (click)="onCancelEdit()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

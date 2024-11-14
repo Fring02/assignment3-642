@@ -1,0 +1,18 @@
+.survey-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
