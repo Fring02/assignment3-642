@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Survey } from '../model/Survey';
 @Component({
@@ -27,7 +27,7 @@ export class SurveyFormComponent {
     additionalComments: '',
   };
 
-  constructor(private surveyService: SurveyService) {}
+  constructor(private surveyService: SurveyService, private router: Router) {}
 
   onCheckboxChange(event: Event): void {
     const checkbox = event.target as HTMLInputElement;
@@ -51,6 +51,8 @@ export class SurveyFormComponent {
         console.log('Survey submitted successfully:', response);
         // Reset the form
         this.onCancel();
+        // Navigate to the root route
+        this.router.navigate(['']);
       },
       (error) => {
         console.error('Error submitting survey:', error);

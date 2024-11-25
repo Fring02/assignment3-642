@@ -3,7 +3,6 @@ import { SurveyService } from '../survey.service';
 import { RouterModule } from '@angular/router';
 import { Survey } from '../model/Survey';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -33,6 +32,22 @@ export class SurveyListComponent implements OnInit {
     this.surveyService.deleteSurvey(id).subscribe(() => {
       this.surveys = this.surveys.filter((survey) => survey.id !== id);
     });
+  }
+
+  onCheckboxChange(event: Event): void {
+    if (this.selectedSurvey && this.selectedSurvey.id) {
+      const checkbox = event.target as HTMLInputElement;
+      const value = checkbox.value;
+      if (checkbox.checked) {
+        // Add the selected value to the array
+        this.selectedSurvey.likedFeatures.push(value);
+      } else {
+        // Remove the unselected value from the array
+        this.selectedSurvey.likedFeatures = this.selectedSurvey.likedFeatures.filter(
+          (feature) => feature !== value
+        );
+      }
+    }
   }
 
   onEdit(id: number): void {

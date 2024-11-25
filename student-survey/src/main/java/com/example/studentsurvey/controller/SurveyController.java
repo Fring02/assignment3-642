@@ -12,10 +12,8 @@ import java.util.List;
 @RequestMapping("/api/surveys")
 @CrossOrigin("*")
 public class SurveyController {
-
     @Autowired
     private SurveyRepository surveyRepository;
-
     @PostMapping
     public Survey createSurvey(@RequestBody Survey survey) {
         return surveyRepository.save(survey);
@@ -32,8 +30,16 @@ public class SurveyController {
                 .map(survey -> {
                     survey.setFirstName(updatedSurvey.getFirstName());
                     survey.setLastName(updatedSurvey.getLastName());
-                    // ... Update all other fields
+                    survey.setPhoneNumber(updatedSurvey.getPhoneNumber());
+                    survey.setEmail(updatedSurvey.getEmail());
+                    survey.setDateOfSurvey(updatedSurvey.getDateOfSurvey());
+                    survey.setCity(updatedSurvey.getCity());
+                    survey.setState(updatedSurvey.getState());
                     survey.setAdditionalComments(updatedSurvey.getAdditionalComments());
+                    survey.setInterestSource(updatedSurvey.getInterestSource());
+                    survey.setRecommendationLikelihood(updatedSurvey.getRecommendationLikelihood());
+                    survey.setLikedFeatures(updatedSurvey.getLikedFeatures());
+                    survey.setStreetAddress(updatedSurvey.getStreetAddress());
                     return ResponseEntity.ok(surveyRepository.save(survey));
                 })
                 .orElse(ResponseEntity.notFound().build());
