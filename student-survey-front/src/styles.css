@@ -1,15 +1,113 @@
+/* General body styling */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", Helvetica, sans-serif;
+  background-color: #f0f8f5; /* Light green-tinted background for elegance */
+  color: #333; /* Neutral text color for readability */
+}
+
+/* Center the app-root container */
+app-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  padding: 20px;
+  background-image: linear-gradient(
+    to bottom,
+    #ffffff,
+    #e8f5ea
+  ); /* Subtle gradient */
+}
+
+/* Styling for card-like content */
+.card {
+  background-color: #ffffff; /* White for contrast */
+  border: 1px solid #d4d4d4; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Header styling */
+h1,
+h2,
+h3 {
+  color: #006633; /* Mason green for titles */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Button styling */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: #006633; /* Mason green */
+  color: #ffffff;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #004d26; /* Darker Mason green */
+}
+
+.btn-danger {
+  background-color: #ffcc33; /* Mason gold */
+  color: #ffffff;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #e6b800; /* Darker Mason gold */
+}
+
+/* Input field styling */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #ffffff;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #006633; /* Highlight Mason green */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 102, 51, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  app-root {
+    padding: 15px;
   }
-  
-  a {
-    text-decoration: none;
+
+  .card {
+    padding: 20px;
   }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
+}

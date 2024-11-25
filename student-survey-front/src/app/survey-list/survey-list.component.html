@@ -1,182 +1,219 @@
-<div class="survey-list-container">
-  <h2>All Surveys</h2>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Street Address</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip</th>
-        <th>Phone Number</th>
-        <th>Email</th>
-        <th>Date of Survey</th>
-        <th>Liked Features</th>
-        <th>Interest Source</th>
-        <th>Recommendation</th>
-        <th>Additional Comments</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let survey of surveys">
-        <td>{{ survey.id }}</td>
-        <td>{{ survey.firstName }}</td>
-        <td>{{ survey.lastName }}</td>
-        <td>{{ survey.streetAddress }}</td>
-        <td>{{ survey.city }}</td>
-        <td>{{ survey.state }}</td>
-        <td>{{ survey.zip }}</td>
-        <td>{{ survey.phoneNumber }}</td>
-        <td>{{ survey.email }}</td>
-        <td>{{ survey.dateOfSurvey }}</td>
-        <td>{{ survey.likedFeatures?.join(', ') }}</td>
-        <td>{{ survey.interestSource }}</td>
-        <td>{{ survey.recommendationLikelihood }}</td>
-        <td>{{ survey.additionalComments }}</td>
-        <td>
-          <button class="btn btn-warning btn-sm" (click)="onEdit(survey.id!)">Edit</button>
-          <button class="btn btn-danger btn-sm" (click)="onDelete(survey.id!)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Survey List</title>
+  
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-pzjw8f+ua7Kw1TIqjQjae5mbxg6onQXZQ1hKHTtIWXZIu16U5JaaO1+3bb9AN+I"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+  <div class="survey-list-container">
+    <h2>All Surveys</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Street Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Date of Survey</th>
+          <th>Liked Features</th>
+          <th>Interest Source</th>
+          <th>Recommendation</th>
+          <th>Additional Comments</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let survey of surveys">
+          <td>{{ survey.id }}</td>
+          <td>{{ survey.firstName }}</td>
+          <td>{{ survey.lastName }}</td>
+          <td>{{ survey.streetAddress }}</td>
+          <td>{{ survey.city }}</td>
+          <td>{{ survey.state }}</td>
+          <td>{{ survey.zip }}</td>
+          <td>{{ survey.phoneNumber }}</td>
+          <td>{{ survey.email }}</td>
+          <td>{{ survey.dateOfSurvey }}</td>
+          <td>{{ survey.likedFeatures?.join(', ') }}</td>
+          <td>{{ survey.interestSource }}</td>
+          <td>{{ survey.recommendationLikelihood }}</td>
+          <td>{{ survey.additionalComments }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="onEdit(survey.id!)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="onDelete(survey.id!)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-  <!-- Edit Form -->
-  <div *ngIf="selectedSurvey" class="edit-form">
-    <h3>Edit Survey</h3>
-    <form (ngSubmit)="onSaveEdit()">
-      <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input
-          id="firstName"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.firstName"
-          name="firstName"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input
-          id="lastName"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.lastName"
-          name="lastName"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="streetAddress">Street Address</label>
-        <input
-          id="streetAddress"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.streetAddress"
-          name="streetAddress"
-        />
-      </div>
-      <div class="form-group">
-        <label for="city">City</label>
-        <input
-          id="city"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.city"
-          name="city"
-        />
-      </div>
-      <div class="form-group">
-        <label for="state">State</label>
-        <input
-          id="state"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.state"
-          name="state"
-        />
-      </div>
-      <div class="form-group">
-        <label for="zip">Zip</label>
-        <input
-          id="zip"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.zip"
-          name="zip"
-        />
-      </div>
-      <div class="form-group">
-        <label for="phoneNumber">Phone Number</label>
-        <input
-          id="phoneNumber"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.phoneNumber"
-          name="phoneNumber"
-        />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.email"
-          name="email"
-        />
-      </div>
-      <div class="form-group">
-        <label for="dateOfSurvey">Date of Survey</label>
-        <input
-          id="dateOfSurvey"
-          type="date"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.dateOfSurvey"
-          name="dateOfSurvey"
-        />
-      </div>
-      <div class="form-group">
-        <label for="likedFeatures">Liked Features</label>
-        <input
-          id="likedFeatures"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.likedFeatures"
-          name="likedFeatures"
-        />
-      </div>
-      <div class="form-group">
-        <label for="interestSource">Interest Source</label>
-        <input
-          id="interestSource"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.interestSource"
-          name="interestSource"
-        />
-      </div>
-      <div class="form-group">
-        <label for="recommendationLikelihood">Recommendation Likelihood</label>
-        <select
-          id="recommendationLikelihood"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.recommendationLikelihood"
-          name="recommendationLikelihood"
-        >
-          <option value="Very Likely">Very Likely</option>
-          <option value="Likely">Likely</option>
-          <option value="Unlikely">Unlikely</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="additionalComments">Additional Comments</label>
-        <textarea
-          id="additionalComments"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.additionalComments"
-          name="additionalComments"
-        ></textarea>
-      </div>
-      <div class="form-buttons">
-        <button class="btn btn-success" type="submit">Save</button>
-        <button class="btn btn-secondary" type="button" (click)="onCancelEdit()">Cancel</button>
-      </div>
-    </form>
+    <!-- Edit Form -->
+    <div *ngIf="selectedSurvey" class="edit-form">
+      <h3>Edit Survey</h3>
+      <form (ngSubmit)="onSaveEdit()">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            id="firstName"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.firstName"
+            name="firstName"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            id="lastName"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.lastName"
+            name="lastName"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="streetAddress">Street Address</label>
+          <input
+            id="streetAddress"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.streetAddress"
+            name="streetAddress"
+          />
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input
+            id="city"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.city"
+            name="city"
+          />
+        </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <input
+            id="state"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.state"
+            name="state"
+          />
+        </div>
+        <div class="form-group">
+          <label for="zip">Zip</label>
+          <input
+            id="zip"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.zip"
+            name="zip"
+          />
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input
+            id="phoneNumber"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.phoneNumber"
+            name="phoneNumber"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.email"
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="dateOfSurvey">Date of Survey</label>
+          <input
+            id="dateOfSurvey"
+            type="date"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.dateOfSurvey"
+            name="dateOfSurvey"
+          />
+        </div>
+        <div class="form-group">
+          <label for="likedFeatures">Liked Features</label>
+          <input
+            id="likedFeatures"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.likedFeatures"
+            name="likedFeatures"
+          />
+        </div>
+        <div class="form-group">
+          <label for="interestSource">Interest Source</label>
+          <input
+            id="interestSource"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.interestSource"
+            name="interestSource"
+          />
+        </div>
+        <div class="form-group">
+          <label for="recommendationLikelihood">Recommendation Likelihood</label>
+          <select
+            id="recommendationLikelihood"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.recommendationLikelihood"
+            name="recommendationLikelihood"
+          >
+            <option value="Very Likely">Very Likely</option>
+            <option value="Likely">Likely</option>
+            <option value="Unlikely">Unlikely</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="additionalComments">Additional Comments</label>
+          <textarea
+            id="additionalComments"
+            class="form-control"
+            [(ngModel)]="selectedSurvey.additionalComments"
+            name="additionalComments"
+          ></textarea>
+        </div>
+        <div class="form-buttons">
+          <button class="btn btn-success" type="submit">Save</button>
+          <button class="btn btn-secondary" type="button" (click)="onCancelEdit()">Cancel</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
+  
+
+  <!-- Optional JavaScript -->
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+h/O7rfFhpPpfgFpFyj7uj1ZqfK7q7LZim+81Bh"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgSNJnlA8d2e2O8mxAHFFNTNjtAMUU2Gc+1I6qUjIMn1eg8tbtM"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
