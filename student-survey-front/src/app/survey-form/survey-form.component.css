@@ -1,18 +1,109 @@
+/* General body styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f0f8f5; /* Light green-tinted background */
+  color: #333; /* Neutral text color */
+}
+
+/* Survey form container */
 .survey-form-container {
-    max-width: 600px;
-    margin: 50px auto;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff; /* White background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Header styling */
+.survey-form-container h2 {
+  text-align: center;
+  color: #006633; /* Mason green */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Input field styling */
+.form-control {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-control:focus {
+  border-color: #006633; /* Mason green */
+  box-shadow: 0 0 5px rgba(0, 102, 51, 0.5);
+  outline: none;
+}
+
+/* Checkbox and radio styling */
+.form-group label input[type="checkbox"],
+.form-group label input[type="radio"] {
+  margin-right: 10px;
+}
+
+label {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Buttons */
+.btn-success {
+  background-color: #006633; /* Mason green */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-success:hover {
+  background-color: #004d26; /* Darker Mason green */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.btn-danger {
+  background-color: #ffcc33; /* Mason gold */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-danger:hover {
+  background-color: #e6b800; /* Darker Mason gold */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Form buttons container */
+.form-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .survey-form-container {
+    padding: 20px;
   }
-  
-  h2 {
-    text-align: center;
+
+  .form-control {
+    font-size: 14px;
+    padding: 8px;
   }
-  
-  .form-group {
-    margin-bottom: 15px;
+
+  .btn-success,
+  .btn-danger {
+    padding: 8px 16px;
+    font-size: 14px;
   }
-  
-  .form-buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-  
+}

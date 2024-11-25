@@ -1,13 +1,108 @@
+/* General body styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", Helvetica, sans-serif;
+  background-color: #f0f8f5; /* Light green-tinted background */
+  color: #333; /* Neutral text color for readability */
+}
+
+/* Homepage container */
 .homepage-container {
-    text-align: center;
-    margin-top: 50px;
+  text-align: center;
+  padding: 50px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff; /* White background for contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+/* Header styling */
+.homepage-container h1 {
+  color: #006633; /* Mason green */
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: slideInFromTop 1s ease-in-out;
+}
+
+/* Paragraph styling */
+.homepage-container p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #555; /* Neutral gray for the text */
+}
+
+/* Links (buttons) */
+.homepage-links a {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Primary button */
+.homepage-links .btn-primary {
+  background-color: #006633; /* Mason green */
+  color: #ffffff;
+  border: none;
+}
+
+.homepage-links .btn-primary:hover {
+  background-color: #004d26; /* Darker Mason green */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Secondary button */
+.homepage-links .btn-secondary {
+  background-color: #ffcc33; /* Mason gold */
+  color: #ffffff;
+  border: none;
+}
+
+.homepage-links .btn-secondary:hover {
+  background-color: #e6b800; /* Darker Mason gold */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
   }
-  
-  .homepage-links {
-    margin-top: 20px;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  a.btn {
-    margin: 10px;
+}
+
+/* Animation for sliding in the header */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .homepage-container {
+    padding: 30px 15px;
+  }
+
+  .homepage-links a {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}

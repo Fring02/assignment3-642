@@ -1,109 +1,123 @@
-<div class="survey-form-container">
-  <h2>Student Survey Form</h2>
-  <form (ngSubmit)="onSubmit()" #surveyForm="ngForm">
-    <!-- First Name -->
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input
-        id="firstName"
-        class="form-control"
-        [(ngModel)]="survey.firstName"
-        name="firstName"
-        required
-      />
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Survey Form</title>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-pzjw8f+ua7Kw1TIqjQjae5mbxg6onQXZQ1hKHTtIWXZIu16U5JaaO1+3bb9AN+I"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+  <div class="survey-form-container">
+    <h2>Student Survey Form</h2>
+    <form (ngSubmit)="onSubmit()" #surveyForm="ngForm">
+      <!-- First Name -->
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          id="firstName"
+          class="form-control"
+          [(ngModel)]="survey.firstName"
+          name="firstName"
+          required
+        />
+      </div>
 
-    <!-- Last Name -->
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input
-        id="lastName"
-        class="form-control"
-        [(ngModel)]="survey.lastName"
-        name="lastName"
-        required
-      />
-    </div>
+      <!-- Last Name -->
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          id="lastName"
+          class="form-control"
+          [(ngModel)]="survey.lastName"
+          name="lastName"
+          required
+        />
+      </div>
 
-    <!-- Street Address -->
-    <div class="form-group">
-      <label for="streetAddress">Street Address</label>
-      <input
-        id="streetAddress"
-        class="form-control"
-        [(ngModel)]="survey.streetAddress"
-        name="streetAddress"
-      />
-    </div>
+      <!-- Street Address -->
+      <div class="form-group">
+        <label for="streetAddress">Street Address</label>
+        <input
+          id="streetAddress"
+          class="form-control"
+          [(ngModel)]="survey.streetAddress"
+          name="streetAddress"
+        />
+      </div>
 
-    <!-- City -->
-    <div class="form-group">
-      <label for="city">City</label>
-      <input
-        id="city"
-        class="form-control"
-        [(ngModel)]="survey.city"
-        name="city"
-      />
-    </div>
+      <!-- City -->
+      <div class="form-group">
+        <label for="city">City</label>
+        <input
+          id="city"
+          class="form-control"
+          [(ngModel)]="survey.city"
+          name="city"
+        />
+      </div>
 
-    <!-- State -->
-    <div class="form-group">
-      <label for="state">State</label>
-      <input
-        id="state"
-        class="form-control"
-        [(ngModel)]="survey.state"
-        name="state"
-      />
-    </div>
+      <!-- State -->
+      <div class="form-group">
+        <label for="state">State</label>
+        <input
+          id="state"
+          class="form-control"
+          [(ngModel)]="survey.state"
+          name="state"
+        />
+      </div>
 
-    <!-- Zip -->
-    <div class="form-group">
-      <label for="zip">Zip</label>
-      <input
-        id="zip"
-        class="form-control"
-        [(ngModel)]="survey.zip"
-        name="zip"
-      />
-    </div>
+      <!-- Zip -->
+      <div class="form-group">
+        <label for="zip">Zip</label>
+        <input
+          id="zip"
+          class="form-control"
+          [(ngModel)]="survey.zip"
+          name="zip"
+        />
+      </div>
 
-    <!-- Phone Number -->
-    <div class="form-group">
-      <label for="phoneNumber">Phone Number</label>
-      <input
-        id="phoneNumber"
-        class="form-control"
-        [(ngModel)]="survey.phoneNumber"
-        name="phoneNumber"
-      />
-    </div>
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input
+          id="phoneNumber"
+          class="form-control"
+          [(ngModel)]="survey.phoneNumber"
+          name="phoneNumber"
+        />
+      </div>
 
-    <!-- Email -->
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        id="email"
-        type="email"
-        class="form-control"
-        [(ngModel)]="survey.email"
-        name="email"
-      />
-    </div>
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          class="form-control"
+          [(ngModel)]="survey.email"
+          name="email"
+        />
+      </div>
 
-    <!-- Date of Survey -->
-    <div class="form-group">
-      <label for="dateOfSurvey">Date of Survey</label>
-      <input
-        id="dateOfSurvey"
-        type="date"
-        class="form-control"
-        [(ngModel)]="survey.dateOfSurvey"
-        name="dateOfSurvey"
-      />
-    </div>
-
+      <!-- Date of Survey -->
+      <div class="form-group">
+        <label for="dateOfSurvey">Date of Survey</label>
+        <input
+          id="dateOfSurvey"
+          type="date"
+          class="form-control"
+          [(ngModel)]="survey.dateOfSurvey"
+          name="dateOfSurvey"
+        />
+      </div>
     <!-- Liked Features -->
     <div class="form-group">
       <label>What did you like most about the campus?</label>
@@ -157,95 +171,113 @@
           Sports
         </label>
       </div>
-    </div>
 
-    <!-- Interest Source -->
-    <div class="form-group">
-      <label>How did you hear about us?</label>
-      <div>
-        <label>
-          <input
-            type="radio"
-            [(ngModel)]="survey.interestSource"
-            name="interestSource"
-            value="Friends"
-          />
-          Friends
-        </label>
-        <label>
-          <input
-            type="radio"
-            [(ngModel)]="survey.interestSource"
-            name="interestSource"
-            value="Television"
-          />
-          Television
-        </label>
-        <label>
-          <input
-            type="radio"
-            [(ngModel)]="survey.interestSource"
-            name="interestSource"
-            value="Internet"
-          />
-          Internet
-        </label>
-        <label>
-          <input
-            type="radio"
-            [(ngModel)]="survey.interestSource"
-            name="interestSource"
-            value="Other"
-          />
-          Other
-        </label>
+      <!-- Interest Source -->
+      <div class="form-group">
+        <label>How did you hear about us?</label>
+        <div>
+          <label>
+            <input
+              type="radio"
+              [(ngModel)]="survey.interestSource"
+              name="interestSource"
+              value="Friends"
+            />
+            Friends
+          </label>
+          <label>
+            <input
+              type="radio"
+              [(ngModel)]="survey.interestSource"
+              name="interestSource"
+              value="Television"
+            />
+            Television
+          </label>
+          <label>
+            <input
+              type="radio"
+              [(ngModel)]="survey.interestSource"
+              name="interestSource"
+              value="Internet"
+            />
+            Internet
+          </label>
+          <label>
+            <input
+              type="radio"
+              [(ngModel)]="survey.interestSource"
+              name="interestSource"
+              value="Other"
+            />
+            Other
+          </label>
+        </div>
       </div>
-    </div>
 
-    <!-- Recommendation Likelihood -->
-    <div class="form-group">
-      <label for="recommendationLikelihood"
-        >Likelihood of Recommending Us</label
-      >
-      <select
-        id="recommendationLikelihood"
-        class="form-control"
-        [(ngModel)]="survey.recommendationLikelihood"
-        name="recommendationLikelihood"
-      >
-        <option value="Very Likely">Very Likely</option>
-        <option value="Likely">Likely</option>
-        <option value="Unlikely">Unlikely</option>
-      </select>
-    </div>
+      <!-- Recommendation Likelihood -->
+      <div class="form-group">
+        <label for="recommendationLikelihood"
+          >Likelihood of Recommending Us</label
+        >
+        <select
+          id="recommendationLikelihood"
+          class="form-control"
+          [(ngModel)]="survey.recommendationLikelihood"
+          name="recommendationLikelihood"
+        >
+          <option value="Very Likely">Very Likely</option>
+          <option value="Likely">Likely</option>
+          <option value="Unlikely">Unlikely</option>
+        </select>
+      </div>
 
-    <!-- Additional Comments -->
-    <div class="form-group">
-      <label for="comments">Additional Comments</label>
-      <textarea
-        id="comments"
-        class="form-control"
-        [(ngModel)]="survey.additionalComments"
-        name="additionalComments"
-      ></textarea>
-    </div>
+      <!-- Additional Comments -->
+      <div class="form-group">
+        <label for="comments">Additional Comments</label>
+        <textarea
+          id="comments"
+          class="form-control"
+          [(ngModel)]="survey.additionalComments"
+          name="additionalComments"
+        ></textarea>
+      </div>
 
-    <!-- Buttons -->
-    <div class="form-buttons">
-      <button
-        class="btn btn-success"
-        type="submit"
-        [disabled]="surveyForm.invalid"
-      >
-        Submit
-      </button>
-      <button
-        class="btn btn-danger"
-        type="button"
-        (click)="onCancel()"
-      >
-        Cancel
-      </button>
-    </div>
-  </form>
-</div>
+      <!-- Buttons -->
+      <div class="form-buttons">
+        <button
+          class="btn btn-success"
+          type="submit"
+          [disabled]="surveyForm.invalid"
+        >
+          Submit
+        </button>
+        <button
+          class="btn btn-danger"
+          type="button"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+h/O7rfFhpPpfgFpFyj7uj1ZqfK7q7LZim+81Bh"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgSNJnlA8d2e2O8mxAHFFNTNjtAMUU2Gc+1I6qUjIMn1eg8tbtM"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
