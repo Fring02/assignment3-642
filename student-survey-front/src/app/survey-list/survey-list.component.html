@@ -133,15 +133,68 @@
           name="dateOfSurvey"
         />
       </div>
-      <div class="form-group">
-        <label for="likedFeatures">Liked Features</label>
-        <input
-          id="likedFeatures"
-          class="form-control"
-          [(ngModel)]="selectedSurvey.likedFeatures"
-          name="likedFeatures"
-        />
-      </div>
+
+ <!-- Liked Features -->
+ <div class="form-group">
+  <label>What did you like most about the campus?</label>
+  <div>
+    <label>
+      <input
+        type="checkbox"
+        [checked]="selectedSurvey.likedFeatures.includes('Students')"
+        [value]="'Students'"
+        (change)="onCheckboxChange($event)"
+      />
+      Students
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        [value]="'Location'"
+        [checked]="selectedSurvey.likedFeatures.includes('Location')"
+        (change)="onCheckboxChange($event)"
+      />
+      Location
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        [value]="'Campus'"
+        [checked]="selectedSurvey.likedFeatures.includes('Campus')"
+        (change)="onCheckboxChange($event)"
+      />
+      Campus
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        [value]="'Atmosphere'"
+        [checked]="selectedSurvey.likedFeatures.includes('Atmosphere')"
+        (change)="onCheckboxChange($event)"
+      />
+      Atmosphere
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        [value]="'Dorm rooms'"
+        [checked]="selectedSurvey.likedFeatures.includes('Dorm rooms')"
+        (change)="onCheckboxChange($event)"
+      />
+      Dorm rooms
+    </label>
+    <label>
+      <input
+        type="checkbox"
+        [value]="'Sports'"
+        [checked]="selectedSurvey.likedFeatures.includes('Sports')"
+        (change)="onCheckboxChange($event)"
+      />
+      Sports
+    </label>
+  </div>
+</div>
+      
       <div class="form-group">
         <label for="interestSource">Interest Source</label>
         <input
